@@ -1,0 +1,75 @@
+## Retrieve All Users
+GET http://localhost:8080/users
+
+
+### Retrieve User by ID
+GET http://localhost:8080/users/1
+
+
+### Create a New User
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "posts": [
+    {
+      "title": "First Post",
+      "content": "Content of the first post",
+      "author": "John Doe"
+    },
+    {
+      "title": "Second Post",
+      "content": "Content of the second post",
+      "author": "John Doe"
+    }
+  ]
+}
+
+###
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "name": "Alex Dan",
+  "posts": [
+    {
+      "title": "First Post",
+      "content": "Content of the first post",
+      "author": "John Doe"
+    },
+    {
+      "title": "Second Post",
+      "content": "Content of the second post",
+      "author": "John Doe"
+    }
+  ]
+}
+
+###
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "name": "Smith William",
+  "posts": [
+    {
+      "title": "First Post",
+      "content": "Content of the first post",
+      "author": "Smith"
+    },
+    {
+      "title": "Second Post",
+      "content": "Content of the second post",
+      "author": "Smith"
+    }
+  ]
+}
+
+
+###Retrieve Posts of a User by User ID
+GET http://localhost:8080/users/6/posts
+
+
+### Get Users with More Than One Post
+GET http://localhost:8080/users/with-multiple-posts
