@@ -1,5 +1,6 @@
 package main.service;
 
+import main.entity.Comment;
 import main.entity.Post;
 import main.entity.User;
 
@@ -12,4 +13,5 @@ public interface UserService {
     List<Post> findPostsByUserId(Long userId);
     List<User> findUsersWithMoreThanOnePost();
 
+    Comment findCommentByUserIdAndPostIdAndCommentId(long userId, long postId, long commentId);
 }

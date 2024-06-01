@@ -12,4 +12,9 @@ public interface UserRepo extends JpaRepository<User, Long> {
     @Query("SELECT u FROM User u WHERE SIZE(u.posts) > 1")
     List<User> findUsersWithMoreThanOnePost();
 
+    @Query("SELECT u FROM User u WHERE SIZE(u.posts) > :n")
+    List<User> findUsersWithMoreThanNPosts(@Param("n") int n);
+
+    @Query("SELECT DISTINCT u FROM User u JOIN u.posts p WHERE p.title = :title")
+    List<User> findUsersByPostTitle(@Param("title") String title);
 }

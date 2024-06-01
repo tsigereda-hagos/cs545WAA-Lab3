@@ -1,10 +1,9 @@
 package main.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Data
 @Getter
@@ -20,5 +19,13 @@ public class Post {
     private String content;
     private String author;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name= "post_id")
+    private List<Comment> comments;
+
+    //Enable Adding a Comment Associated with its Post
+    public void addComment(Comment comment) {
+        this.comments.add(comment);
+    }
 
 }
